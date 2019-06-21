@@ -21,7 +21,7 @@ const SearchBar = ({ dispatch, searchBarValueInput, poiKeywordsDisplay }) => (
     <div className="search-box">
       <form onSubmit={(e) => {
         axios.get(`http://localhost:3001/pois/filter/${searchBarValueInput}`)
-          .then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data }));
+          .then(res => dispatch({ type: 'HANDLE_SUBMIT_SEARCHBAR', filteredPoiByKeyword: res.data, poiSampleDisplay: [] }));
         e.preventDefault();
       }
       }

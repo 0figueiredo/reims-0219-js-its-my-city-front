@@ -68,6 +68,7 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
+        poiSampleDisplay: action.poiSampleDisplay,
       };
     case 'HANDLE_FORM_NAME_CHANGE':
       return {
