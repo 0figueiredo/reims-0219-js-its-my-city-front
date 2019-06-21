@@ -6,6 +6,7 @@ const initialState = {
   specificPoiInfos: [],
   isCreateFormDisplayed: false,
   InformationPoiInfos: false,
+  filterKeywordPageDisplay: false, // displays the page that allows to filter the keywords
   searchBarValueInput: '',
   filteredPoiByKeyword: [],
   poiKeywordsDisplay: [],
@@ -59,12 +60,17 @@ const poisReducer = (state = initialState, action) => {
         ...state,
         InformationPoiInfos: action.InformationPoiInfos,
       };
+    case 'DISPLAY_FILTER_PAGE':
+      return {
+        ...state,
+        filterKeywordPageDisplay: action.filterKeywordPageDisplay,
+      };
     case 'HANDLE_SEARCHBAR_INPUT':
       return {
         ...state,
         searchBarValueInput: action.searchBarValueInput,
       };
-    case 'HANDLE_SUBMIT_SEARCHBAR':
+    case 'HANDLE_KEYWORD_FILTERING':
       return {
         ...state,
         filteredPoiByKeyword: action.filteredPoiByKeyword,
@@ -85,6 +91,11 @@ const poisReducer = (state = initialState, action) => {
       return {
         ...state,
         keywordTwo: action.keywordTwo,
+      };
+    case 'CLOSE_FILTER_COMPONENT':
+      return {
+        ...state,
+        filterKeywordPageDisplay: action.filterKeywordPageDisplay,
       };
     default:
       return state;
